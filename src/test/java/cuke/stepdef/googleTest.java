@@ -68,6 +68,32 @@ public class googleTest {
 		  assertTrue(hasImage);
 	  }
 	  
+	  @When("^we search for puppies$")
+	  public void we_search_for_puppies() throws Throwable {
+		  targ = driver.findElement(By.xpath("//*[@id=\"tsf\"]/div[2]/div[1]/div[1]/div/div[2]/input"));
+		  assertNotNull(targ);
+		  
+		  searchTerm = "Puppies";
+		  
+		  targ.sendKeys(searchTerm);
+		  
+		  assertEquals(searchTerm, targ.getAttribute("value"));
+		  targ.submit();
+	  }
+
+	  @Then("^google will return us images of puppies$")
+	  public void google_will_return_us_images_of_puppies() throws Throwable {
+		  targ = driver.findElement(By.xpath("//*[@id=\"hdtb-msb-vis\"]/div[2]/a"));
+		  targ.click();
+		  
+		  targ = driver.findElement(By.xpath("//*[@id=\"islrg\"]/div[1]/div[1]/a[1]/div[1]/img"));
+		  
+		  
+		  Boolean hasImage = targ.getAttribute("src").contains("image");
+		  
+		  assertTrue(hasImage);
+	  }
+	  
 	  
 	// Designed to return ChromeOptions to configure new ChromeDrivers in Selenium
 	  public static ChromeOptions chromeCfg() {
