@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -93,6 +94,11 @@ public class googleTest {
 		  
 		  assertTrue(hasImage);
 	  }
+	  
+		@After
+		public void end() {
+			driver.close();
+		}
 	  
 	  
 	// Designed to return ChromeOptions to configure new ChromeDrivers in Selenium

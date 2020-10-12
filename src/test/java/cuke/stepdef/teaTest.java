@@ -48,12 +48,19 @@ public class teaTest {
 		assertEquals(check, driver.getTitle());
 		System.out.println("Check the menu");
 	}
+	
+	@When("^I choose the \"([^\"]*)\"$")
+	public void i_choose_the(String arg1) throws Throwable {
+		targ = driver.findElement(By.xpath("//*[@id=\"wsb-element-00000000-0000-0000-0000-000453231072\"]/div/p/span/span/strong"));
+		assertEquals(arg1, targ.getText());
+		System.out.println("I choose the " + arg1);
+	}
 
-	@When("^a choose which tea to buy$")
+	@When("^I will buy the tea$")
 	public void a_choose_which_tea_to_buy() throws Throwable {
 		targ = driver.findElement(By.xpath("//*[@id=\"wsb-button-00000000-0000-0000-0000-000451959280\"]/span"));
 		targ.click();
-		System.out.println("Choose the tea and go the checkout");
+		System.out.println("I go the checkout");
 	}
 
 	@Then("^I go to checkout$")

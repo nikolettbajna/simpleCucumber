@@ -4,5 +4,6 @@ Feature: teaTask
     Given I can open the website
     And the title is equals to "Welcome"
     When I check the menu
-    And a choose which tea to buy
+    And I choose the "Red Tea"
+    And I will buy the tea
     Then I go to checkout
