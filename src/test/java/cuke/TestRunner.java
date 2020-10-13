@@ -7,7 +7,11 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "src/test/resources/cuke")
+		features = "src/test/resources/cuke",
+		plugin = {"pretty", "html:target/reports/htmlReport"},
+		monochrome = true,
+		tags = {"~@ignore"}
+		)
 public class TestRunner {
 
 }

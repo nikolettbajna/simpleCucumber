@@ -26,7 +26,7 @@ public class teaTest {
 	@Before
 	public void init() {
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
-		driver = new ChromeDriver(chromeCfg());
+		driver = new ChromeDriver(chromeCfg().setHeadless(true));
 	}
 	
 	@Given("^I can open the website$")
